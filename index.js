@@ -119,10 +119,22 @@ window.addEventListener('load', ()=>{
                     if(newInput.disabled == true){
                         newInput.disabled = false;
                         newEdit.textContent = "Save";
+                        var oldValue = newInput.value;
                     }
                     else if(newInput.disabled == false){
                         newInput.disabled = true;
                         newEdit.textContent = "Edit";
+                        
+                        console.log(oldValue);
+                        for(let i = 0; i<= localStorage.length; i++){
+                            let storageValue = localStorage.getItem(localStorage.key(i));
+                            
+                            if(oldValue == storageValue){
+                                console.log("lol")
+                                localStorage.setItem(`Task${i}`, newInput.value)
+                            }
+        
+                        }
                     }
                 })
             });
