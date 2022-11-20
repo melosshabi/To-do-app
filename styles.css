@@ -18,6 +18,7 @@ body{
     align-items: center;
     height: 100vh;
     width: 100vw;
+    overflow:hidden;
 }
 
 .main-div{
@@ -196,6 +197,8 @@ body{
     }
     .task{
         height: 7%;
+        width: 100%;
+        margin-left:0;
     }
 }
 @media(max-width:412px){
@@ -216,6 +219,14 @@ body{
         padding:10px 9% 10px 15px;
     }
 }
+@media(max-width:390px){
+    .delete{
+        margin-left:-30px;
+    }
+    .edit{
+        margin-right: 36px;
+    }
+}
 @media(max-width:375px){
     .task-field{
         padding:10px 2% 10px 15px;
@@ -232,6 +243,19 @@ body{
 @media(max-width:360px){
     .task-field{
         padding:10px 2% 10px 15px;
+    }
+    .task{
+        width: 100%;
+        margin-left: 0;
+    }
+    .task input{
+        padding:3px 0px;
+    }
+    .delete{
+        margin-left: -15px;
+    }
+    .edit{
+        margin-right: 20px;
     }
 }
 @media(max-width:280px){
