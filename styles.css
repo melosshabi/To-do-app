@@ -1,290 +1,195 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree&display=swap');
-
-:root{
-    --dark:rgb(16,24,37);
-}
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 *{
-    box-sizing: border-box;
+    padding:0;
     margin:0;
-    padding: 0;
 }
-
+:root{
+    --black:rgba(0, 0, 0, .5);
+    --white:rgba(255, 255, 255, .8);
+}
+html{
+    overflow: hidden;
+}
 body{
-    font-family: 'Figtree', sans-serif;
-    background-color: rgb(57, 40, 59);
-    color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color:rgba(0, 0, 0, .9);
     height: 100vh;
     width: 100vw;
-    overflow:hidden;
-}
-
-.main-div{
-    height: 80%;
-    width: 35%;
-    background-color: rgb(66, 13, 54);
-    /* background-color: rgb(55,65,80); */
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    font-family: 'Albert Sans', sans-serif;
+    color:white;
+}
+.container{
+    width: 40vw;
+    height: 90vh;
+    margin:auto;
+    border-radius: 15px;
+    display: flex;
     flex-direction: column;
-    border-radius: 4%;
-    position: relative;
+    align-items: center;
+    background-color: rgb(32,33,36);
+    box-shadow: 0px 0px 10px rgba(250, 0, 0, .5);
 }
-.task-list{
-    margin:5% 0;
-    background-image: linear-gradient(to left, #2787b1, #00a7be, #00c3a2, #53d866, #cee100);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color:transparent;
+.melas-todo{
+    margin:3% 0;
 }
-.inputs{
-    width: 100%;
+.input-div{
+    width: 80%;
     height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.task-field{
-    margin-left:5%;
-    padding:10px 25% 10px 15px;
-    outline: none;
+form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.user-input{
+    padding: 10px 15px;
+    border-radius: 5px;
     border:none;
-    border-radius: 10px;
-    background-color: var(--dark);
+    margin-left: 3%;
+    background-color: var(--black);
     color:white;
-    font-size: 1.3rem;
-    transition: padding 200ms;
+    width: 49%;
+    font-size: 1.2rem;
+    transition:padding 250ms;
 }
-.task-field::placeholder{
-    color:rgba(255, 255, 255, .7);
+.user-input::placeholder{
+    color:var(--white);
 }
-.task-field:hover{
-    padding:13px 26% 13px 18px;
+.user-input:focus{
+    outline:none;
+}
+.user-input:hover{
+    padding:13px 18px;
 }
 .add-task{
-    margin-right: 6%;
-    padding:10px 15px;
-    background-color: var(--dark);
+    padding:10px 25px;
+    background-color: var(--black);
     color:white;
-    cursor: pointer;
-    font-size: 1.2rem;
     border:none;
-    border-radius: 10px;
+    border-radius:10px;
+    font-size: 1.2rem;
+    cursor:pointer;
+    margin-right: 3%;
     transition: transform 200ms;
 }
 .add-task:hover{
-    transform: translate(3px, -3px);
+    transform: translate(4px, -4px);
 }
-.tasks-title-div{
-    background-image: linear-gradient(to left, #2787b1, #00a7be, #00c3a2, #53d866, #cee100);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.tasks-h1{
+    margin:3% 0;
 }
-.tasks-title-div p{
-    margin-top:15%;
-    font-size: 1.8rem;
-}
-.tasks{
-    width: 100%;
-    height: 100%;
-    border-radius: 4%;
-    display: flex;
-    flex-direction: column;
+.tasks-div{
+    width: 90%;
+    height: 90%;
 }
 .task{
-    background-color: var(--dark);
-    margin-top:5%;
-    height: 8%;
-    width: 89%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding:15px 10px;
+    background-color: var(--black);
     border-radius: 10px;
-    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 3%;
 }
-.task input{
-    font-size: 1rem;
-    padding:3px 15px;
+.task-input{
     background:none;
     border:none;
     color:white;
+    font-size: 1.2rem;
 }
-.task input:focus{
-    outline: none;
+.task-input:focus{
+    outline:0;
+    border-bottom: 1px solid white;
 }
-
-.btn-div{
+.buttons-div{
     height: 100%;
-    width: 30%;
+    width: 35%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
 }
-
-.edit, .delete{
-    background: none;
-    color:#EC4899;
-    border:none;
+.save, .edit, .delete{
+    background-color: var(--black);
+    color:white;
     font-size: 1.2rem;
-    cursor: pointer;
+    border:none;
+    padding:10px 15px;
+    border-radius: 10px;
+    cursor:pointer;
 }
-.delete{
-    margin-right: 10px;
+.disabled{
+    opacity: .2;
+    cursor: not-allowed;
 }
-
+@media(max-width:1280px){
+    .container{
+        width:60vw;
+    }
+}
 @media(max-width:1024px){
-    .main-div{
-        width: 60%;
-    }
-
-}
-@media(max-width:912px){
-    .main-div{
-        width: 70%;
-    }
-    .task{
-        height: 6%;
+    .container{
+        width: 80vw;
     }
 }
 @media(max-width:820px){
-    .main-div{
-        width: 75%;
-    }
-}
-@media(max-width:768px){
-    .main-div{
-        width: 80%;
-    }
-    .task{
-        height: 10%;
-    }
-    .task input{
-        font-size: 1.3rem;
-    }
-    .btn-div button{
-        font-size: 1.3rem;
-    }
-}
-@media(max-width:540px){
-    .main-div{
-        width: 85%;
-    }
-    .task-field{
-        font-size: 1rem;
-        padding:10px 20% 10px 15px;
-    }
-    .add-task{
-        font-size: 1rem;
-        padding:none;
-    }
-
-    .task{
-        height: 10%;
-    }
-}
-@media(max-width:414px){
-    .main-div{
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
-    .task-field{
-        padding:10px 12% 10px 15px;
-    }
-    .task{
-        height: 7%;
-        width: 100%;
-        margin-left:0;
+    .container{
+        width: 95vw;
     }
 }
 @media(max-width:412px){
-    .main-div{
+    body{
+        overflow: hidden;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        border-radius:0;
+    }
+    .melas-todo{
+        margin-top:5%;
+    }
+    .input-div{
         width: 100%;
-        height: 100%;
-        border-radius: 0;
     }
-    .task-field{
-        padding:10px 12% 10px 15px;
+    .user-input, .add-task{
+        font-size: 1rem;
     }
-    .task{
-        height: 7%;
-    }
-}
-@media(max-width:393px){
-    .task-field{
-        padding:10px 9% 10px 15px;
-    }
-}
-@media(max-width:390px){
-    .delete{
-        margin-left:-30px;
-    }
-    .edit{
-        margin-right: 36px;
-    }
-}
-@media(max-width:375px){
-    .task-field{
-        padding:10px 2% 10px 15px;
+    .tasks-div{
+        width: 100%;
     }
     .task{
-        height: 10%;
+        width: 100%;
+        margin-left:0;
     }
-    .btn-div{
-        display: flex;
-        justify-content: space-between;
+    .task-input{
+        font-size: 1rem;
+    }
+    .buttons-div{
+        /* background-color: red; */
         width: 50%;
+        margin-right: 15px;
+    }
+    .save, .edit, .delete{
+        font-size: 1rem;
     }
 }
 @media(max-width:360px){
-    .task-field{
-        padding:10px 2% 10px 15px;
-    }
     .task{
-        width: 100%;
-        margin-left: 0;
-    }
-    .task input{
-        padding:3px 0px;
-    }
-    .delete{
-        margin-left: -15px;
-    }
-    .edit{
-        margin-right: 20px;
-    }
-}
-@media(max-width:280px){
-    .inputs{
-        flex-direction: column;
+        height: 20%;
+        display: flex;
         align-items: center;
     }
-    .add-task{
-        margin-top:5%;
-        margin-bottom: 5%;
+    .task-input{
+        font-size: 1.1rem;
     }
-    .tasks-title-div{
-        margin-top:15%;
+    .buttons-div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-right: -10%;
     }
-    .task input{
-        width: 50%;
-        line-break: auto;
-        font-size: 1rem;
-        padding:3px 0px;
-        margin:none;
-    }
-    .btn-div{
-        justify-content: flex-end;
-    }
-    .edit{
-        margin-right: 10px;
-    }
-    .btn-div button{
-        font-size: 1rem;
-    }
-    
 }
