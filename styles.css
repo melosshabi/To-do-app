@@ -84,6 +84,15 @@ button{
 .tasks-div{
     width: 95%;
     height: 90%;
+    padding-right: 10px;
+    overflow-y:scroll;
+}
+.tasks-div::-webkit-scrollbar{
+    width: 8px;
+}
+.tasks-div::-webkit-scrollbar-thumb{
+    background-color: red;
+    border-radius: 8px;
 }
 .task{
     padding:15px 10px;
